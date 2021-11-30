@@ -19,6 +19,9 @@ parameters:
   - name: globalName
     default: globalNameInParamters
     type: string  
+  - name: anotherVar
+    default: anotherVarInParamters
+    type: string      
 pool:
   vmImage: 'ubuntu-16.04'
 
@@ -31,4 +34,4 @@ jobs:
   steps:
   - task: CmdLine@2
     inputs:
-      script: 'echo "name: $(name); globalName: $(globalName)"'
+      script: 'echo "name: $(name); globalName: $(globalName); anotherVar:$(anotherVar)"'
