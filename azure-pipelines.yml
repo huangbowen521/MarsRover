@@ -6,17 +6,22 @@
 trigger:
 - master
 
+variables:
+- name: name
+  value: bowen
+
+parameters:
+  - name: name
+    default: zhangsan
+    type: string
 pool:
   vmImage: 'ubuntu-16.04'
 
-steps:
-- task: Maven@3
-  inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.11'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: false
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+jobs:
+- job: job1
+  variables:
+    name: wangwu
+  steps:
+  - task: CmdLine@2
+    inputs:
+      script: 'echo "name: $(name)"'
