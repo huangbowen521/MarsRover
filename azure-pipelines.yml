@@ -19,6 +19,8 @@ pool:
 
 jobs:
 - job: job1
+  pool:
+    vmImage: 'ubuntu-latest'
   variables:
     name: wangwu
   steps:
