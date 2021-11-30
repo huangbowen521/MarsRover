@@ -9,11 +9,16 @@ trigger:
 variables:
 - name: name
   value: bowen
+- name: globalName
+  value: globalNameFromVariables
 
 parameters:
   - name: name
     default: zhangsan
     type: string
+  - name: globalName
+    default: globalNameInParamters
+    type: string  
 pool:
   vmImage: 'ubuntu-16.04'
 
@@ -26,4 +31,4 @@ jobs:
   steps:
   - task: CmdLine@2
     inputs:
-      script: 'echo "name: $(name)"'
+      script: 'echo "name: $(name); globalName: $(globalName)"'
