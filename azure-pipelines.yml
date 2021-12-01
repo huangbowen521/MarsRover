@@ -11,6 +11,8 @@ variables:
   value: bowen
 - name: globalName
   value: globalNameFromVariables
+- name: name2
+  value: name2FromVariables  
 
 parameters:
   - name: name
@@ -34,4 +36,4 @@ jobs:
   steps:
   - task: CmdLine@2
     inputs:
-      script: 'echo "name: $(name); globalName: $(globalName) ${{ parameters.globalName }}; anotherVar:$(anotherVar)  ${{ parameters.anotherVar }}"'
+      script: 'echo "name: $(name);  globalName: $(globalName) ${{ parameters.globalName }}; anotherVar:$(anotherVar)  ${{ parameters.anotherVar }}  name2: ${{ name2 }}"'
