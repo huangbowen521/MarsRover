@@ -36,4 +36,4 @@ jobs:
   steps:
   - task: CmdLine@2
     inputs:
-      script: 'echo "name: $(name);  globalName: $(globalName) ${{ parameters.globalName }}; anotherVar:$(anotherVar)  ${{ parameters.anotherVar }}  name2: ${{ name2 }}"'
+      script: 'echo "name: $(name);  globalName: $(globalName) ${{ parameters.globalName }}; anotherVar:$(anotherVar)  ${{ parameters.anotherVar }}  name2: $(name2)"'
